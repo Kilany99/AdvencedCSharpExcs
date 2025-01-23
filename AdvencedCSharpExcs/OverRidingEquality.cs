@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,8 +116,11 @@ namespace AdvencedCSharpExcs
         private Area _area;
         
         public Area GetValue()
-        { 
-            return _area;
+        {
+            ImmutableArray<int> array = [1, 2, 3];
+            ImmutableArray<Area>.Builder builder = ImmutableArray.CreateBuilder<Area>();
+            builder.Add(_area);
+            return builder[0];
         }
        
     }
